@@ -15,7 +15,7 @@ const interviewRouter = express.Router()
 interviewRouter.post(
     "/",
     (req, res, next) => {
-        console.log("🔥 POST /api/interview route reached")
+        console.log(" POST /api/interview route reached")
         next()
     },
     authMiddleware.authUser,
