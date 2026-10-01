@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../style/home.scss"
 import { useInterview } from '../hooks/useInterview.js'
 import { useNavigate } from 'react-router'
+import { logout } from "../../auth/services/auth.api"
 
 const Home = () => {
 
@@ -12,6 +13,10 @@ const Home = () => {
     const [resumeFile, setResumeFile] = useState(null)
 
     const navigate = useNavigate()
+    const handleLogout = async () => {
+    await logout()
+    navigate("/login")
+}
 
     const handleResumeChange = (e) => {
         const file = e.target.files[0]
@@ -439,6 +444,9 @@ e.g. 'Senior Frontend Engineer at Google requires proficiency in React, TypeScri
                 <a href='#'>Help Center</a>
 
             </footer>
+            <button onClick={handleLogout}>
+    Logout
+</button>
 
         </div>
     )
